@@ -40,6 +40,8 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
                 .withClient("mac")
                 .secret("secret")
                 .scopes("all")
+                .accessTokenValiditySeconds(30)
+                // https://auth0.com/docs/applications/application-grant-types
                 .authorizedGrantTypes("password", "refresh_token");
     }
 
