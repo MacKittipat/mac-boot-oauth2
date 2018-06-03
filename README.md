@@ -35,3 +35,7 @@ curl -X POST \
   -F grant_type=refresh_token \
   -F refresh_token=7676065a-2e3e-4762-a964-1b1ac878b524
 ```
+
+Grant Types 
+- https://auth0.com/docs/applications/application-grant-types
+- https://alexbilbie.com/guide-to-oauth-2-grants/
