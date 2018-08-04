@@ -16,6 +16,8 @@ import org.springframework.security.oauth2.provider.token.DefaultTokenServices;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.InMemoryTokenStore;
 
+import javax.sql.DataSource;
+
 @Configuration
 @EnableAuthorizationServer
 public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
@@ -26,8 +28,11 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     @Autowired
     private UserDetailsService userDetailsService;
 
+    @Autowired
+    private DataSource dataSource;
+
     @Override
-    public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
+    public void configure(AuthorizationServerSecurityConfigurer security) {
         security.checkTokenAccess("permitAll()");
     }
 
@@ -41,8 +46,8 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
         tokenServices.setSupportRefreshToken(true);
         tokenServices.setReuseRefreshToken(true);
-        tokenServices.setAccessTokenValiditySeconds(60);
-        tokenServices.setRefreshTokenValiditySeconds(300);
+//        tokenServices.setAccessTokenValiditySeconds(60);
+//        tokenServices.setRefreshTokenValiditySeconds(300);
 
         endpoints.tokenServices(tokenServices);
         endpoints.authenticationManager(authenticationManager);
@@ -51,12 +56,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-        clients.inMemory()
-                .withClient("mac")
-                .secret("secret")
-                .scopes("all")
-                // https://auth0.com/docs/applications/application-grant-types
-                .authorizedGrantTypes("password", "refresh_token");
+        clients.jdbc(dataSource);
     }
 
     @Bean
