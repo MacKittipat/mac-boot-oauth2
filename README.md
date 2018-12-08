@@ -68,3 +68,4 @@ curl -X GET \
 
 ## Reference 
 - https://docs.spring.io/spring-security-oauth2-boot/docs/current-SNAPSHOT/reference/htmlsingle/
+- https://vimeo.com/138774235
