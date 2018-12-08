@@ -11,6 +11,16 @@ curl -X POST \
   -d 'username=mac&password=password'
 ```
 
+```
+{
+    "access_token": "d57a69d3-28a6-47f3-90ee-677d4ee95f31",
+    "token_type": "bearer",
+    "refresh_token": "2e1d76ca-147a-4ae1-b30c-42ad3724304a",
+    "expires_in": 299,
+    "scope": "read write"
+}
+```
+
 ## Check token
 ```curl
 curl -X GET \
@@ -20,6 +30,15 @@ curl -X GET \
   -H 'Content-Type: application/x-www-form-urlencoded' \
   -H 'Postman-Token: bbaa0849-38e1-498b-a7f7-81aaa41a7b38' \
   -d 'username=mac&password=password'
+```
+
+```
+{
+    "exp": 1544238454,
+    "user_name": "mac",
+    "client_id": "client_id",
+    "scope": ["read", "write"]
+}
 ```
 
 ## Get new token by refresh token
