@@ -65,3 +65,6 @@ curl -X GET \
 ## Grant Types 
 - https://auth0.com/docs/applications/application-grant-types
 - https://alexbilbie.com/guide-to-oauth-2-grants/
+
+## Reference 
+- https://docs.spring.io/spring-security-oauth2-boot/docs/current-SNAPSHOT/reference/htmlsingle/
