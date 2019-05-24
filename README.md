@@ -63,7 +63,7 @@ curl -X GET \
 ```
 
 ## Grant Types 
-- https://auth0.com/docs/applications/application-grant-types
+- https://auth0.com/docs/api-auth/which-oauth-flow-to-use
 - https://alexbilbie.com/guide-to-oauth-2-grants/
 
 ## Reference 
